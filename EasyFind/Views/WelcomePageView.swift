@@ -11,9 +11,9 @@ struct WelcomePageView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 15) {
                     Text("Welcome")
-                        .foregroundColor(Color("PurpleTheme"))
+                        .foregroundColor(.mainColor)
                         .font(.system(.title, design: .rounded))
                         .fontWeight(.medium)
                     Text("Please login or sign up to continue using our app.")
@@ -40,7 +40,7 @@ struct WelcomePageView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color("PurpleTheme"))
+                            .background(Color.mainColor)
                             .cornerRadius(8)
                     }
 
@@ -49,10 +49,10 @@ struct WelcomePageView: View {
                         Text("You already have an account?")
                             .foregroundColor(.secondary)
                         NavigationLink {
-                            Text("Login Page")
+                            Text("Login page")
                         } label: {
                             Text("Login")
-                                .foregroundColor(Color(Constants.purpleThemeColor))
+                                .foregroundColor(.mainColor)
                         }
 
                     }
