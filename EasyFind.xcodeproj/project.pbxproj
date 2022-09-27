@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0359AA28E36145004362F5 /* WelcomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0359A928E36145004362F5 /* WelcomePageView.swift */; };
+		3A0359AE28E36FC8004362F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0359AD28E36FC8004362F5 /* Constants.swift */; };
+		3A0359B528E370E5004362F5 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0359B428E370E5004362F5 /* Color+Extensions.swift */; };
 		3ABA50B328D77F9600C59961 /* EasyFindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA50B228D77F9600C59961 /* EasyFindApp.swift */; };
 		3ABA50B528D77F9600C59961 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA50B428D77F9600C59961 /* ContentView.swift */; };
 		3ABA50B728D77F9C00C59961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABA50B628D77F9C00C59961 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0359A928E36145004362F5 /* WelcomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageView.swift; sourceTree = "<group>"; };
+		3A0359AD28E36FC8004362F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3A0359B428E370E5004362F5 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		3ABA50AF28D77F9600C59961 /* EasyFind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABA50B228D77F9600C59961 /* EasyFindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyFindApp.swift; sourceTree = "<group>"; };
 		3ABA50B428D77F9600C59961 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +38,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A0359AF28E36FCC004362F5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3A0359B428E370E5004362F5 /* Color+Extensions.swift */,
+				3A0359AD28E36FC8004362F5 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3A0359B028E36FD4004362F5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3A0359B128E36FE7004362F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A0359A928E36145004362F5 /* WelcomePageView.swift */,
+				3ABA50B428D77F9600C59961 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A0359B228E37001004362F5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3ABA50A628D77F9600C59961 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +90,10 @@
 			isa = PBXGroup;
 			children = (
 				3ABA50B228D77F9600C59961 /* EasyFindApp.swift */,
-				3ABA50B428D77F9600C59961 /* ContentView.swift */,
+				3A0359B228E37001004362F5 /* Models */,
+				3A0359B128E36FE7004362F5 /* Views */,
+				3A0359B028E36FD4004362F5 /* ViewModels */,
+				3A0359AF28E36FCC004362F5 /* Utils */,
 				3ABA50B628D77F9C00C59961 /* Assets.xcassets */,
 				3ABA50B828D77F9C00C59961 /* Preview Content */,
 			);
@@ -137,8 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A0359B528E370E5004362F5 /* Color+Extensions.swift in Sources */,
 				3ABA50B528D77F9600C59961 /* ContentView.swift in Sources */,
 				3ABA50B328D77F9600C59961 /* EasyFindApp.swift in Sources */,
+				3A0359AA28E36145004362F5 /* WelcomePageView.swift in Sources */,
+				3A0359AE28E36FC8004362F5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
