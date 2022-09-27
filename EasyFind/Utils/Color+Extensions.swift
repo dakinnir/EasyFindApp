@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
+
+extension Color {
+  
+    /// Main branding colors
+  static let brand = Color("purpleAppColor")
+  static let mainColor = Color("purpleAppColor")
+  
+}
