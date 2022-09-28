@@ -14,6 +14,8 @@
 		3A53B90828E4C1F30099A35E /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90728E4C1F30099A35E /* LoginPageViewModel.swift */; };
 		3A53B90A28E4D0430099A35E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90928E4D0430099A35E /* UIColor+Extensions.swift */; };
 		3A53B90D28E4D1260099A35E /* FormEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90C28E4D1260099A35E /* FormEntryField.swift */; };
+		3A53B90F28E4D2D20099A35E /* SignUpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90E28E4D2D20099A35E /* SignUpPageView.swift */; };
+		3A53B91128E4D2FD0099A35E /* SignUpPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B91028E4D2FD0099A35E /* SignUpPageViewModel.swift */; };
 		3ABA50B328D77F9600C59961 /* EasyFindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA50B228D77F9600C59961 /* EasyFindApp.swift */; };
 		3ABA50B528D77F9600C59961 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA50B428D77F9600C59961 /* ContentView.swift */; };
 		3ABA50B728D77F9C00C59961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABA50B628D77F9C00C59961 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		3A53B90728E4C1F30099A35E /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
 		3A53B90928E4D0430099A35E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		3A53B90C28E4D1260099A35E /* FormEntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEntryField.swift; sourceTree = "<group>"; };
+		3A53B90E28E4D2D20099A35E /* SignUpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageView.swift; sourceTree = "<group>"; };
+		3A53B91028E4D2FD0099A35E /* SignUpPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageViewModel.swift; sourceTree = "<group>"; };
 		3ABA50AF28D77F9600C59961 /* EasyFind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABA50B228D77F9600C59961 /* EasyFindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyFindApp.swift; sourceTree = "<group>"; };
 		3ABA50B428D77F9600C59961 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				3A53B90728E4C1F30099A35E /* LoginPageViewModel.swift */,
+				3A53B91028E4D2FD0099A35E /* SignUpPageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -71,6 +76,7 @@
 				3A0359A928E36145004362F5 /* WelcomePageView.swift */,
 				3ABA50B428D77F9600C59961 /* ContentView.swift */,
 				3A53B90528E4C1CD0099A35E /* LoginPageView.swift */,
+				3A53B90E28E4D2D20099A35E /* SignUpPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,10 +207,12 @@
 				3A0359B528E370E5004362F5 /* Color+Extensions.swift in Sources */,
 				3ABA50B528D77F9600C59961 /* ContentView.swift in Sources */,
 				3ABA50B328D77F9600C59961 /* EasyFindApp.swift in Sources */,
+				3A53B91128E4D2FD0099A35E /* SignUpPageViewModel.swift in Sources */,
 				3A53B90D28E4D1260099A35E /* FormEntryField.swift in Sources */,
 				3A53B90A28E4D0430099A35E /* UIColor+Extensions.swift in Sources */,
 				3A0359AA28E36145004362F5 /* WelcomePageView.swift in Sources */,
 				3A0359AE28E36FC8004362F5 /* Constants.swift in Sources */,
+				3A53B90F28E4D2D20099A35E /* SignUpPageView.swift in Sources */,
 				3A53B90828E4C1F30099A35E /* LoginPageViewModel.swift in Sources */,
 				3A53B90628E4C1CD0099A35E /* LoginPageView.swift in Sources */,
 			);
