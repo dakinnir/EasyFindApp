@@ -28,7 +28,6 @@ struct FormEntryField: View {
             Divider()
                 .foregroundColor(.secondary)
         }
-        .padding(.vertical)
     }
 }
 
