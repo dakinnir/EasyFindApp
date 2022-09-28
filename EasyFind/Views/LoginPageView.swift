@@ -15,21 +15,21 @@ struct LoginPageView: View {
     // MARK: - Body
     var body: some View {
         VStack {
-            Spacer()
-            // Page Title
-            Text(Constants.signInTitle)
-                .font(.system(.largeTitle, design: .rounded))
-                .fontWeight(.medium)
-                .foregroundColor(Color(Constants.purpleThemeColor))
-                .padding()
+
             Spacer()
             
             // MARK: - Form
             VStack(alignment: .leading) {
                 Text(Constants.loginMessage)
                     .foregroundColor(.secondary)
+                    .padding(.vertical, 10)
+
                 FormEntryField(entryText: $userLoginViewModel.userEmail, placeHolderText: "Email", isSecureEntry: false)
+                    .padding(.vertical, 10)
+
                 FormEntryField(entryText: $userLoginViewModel.password, placeHolderText: "Password", isSecureEntry: true)
+                    .padding(.vertical, 10)
+
                 
                 VStack {
                     // Forget Password Button

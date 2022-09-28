@@ -14,6 +14,8 @@ struct WelcomePageView: View {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.mainColor, .font: UIFont(name: "ArialRoundedMTBold", size: 25)!]
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.mainColor, .font: UIFont(name: "ArialRoundedMTBold", size: 18)!]
+        
+        navBarAppearance.setBackIndicatorImage(UIImage(systemName: "arrow.turn.up.left"), transitionMaskImage: UIImage(systemName: "arrow.turn.up.left"))
 
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
@@ -40,7 +42,7 @@ struct WelcomePageView: View {
                 VStack(spacing: 20) {
                     
                     NavigationLink {
-                        Text("Sign up page")
+                        SignUpPageView()
                     } label: {
                         Text("Sign up")
                             .font(.system(.title2, design: .rounded))
