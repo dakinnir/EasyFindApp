@@ -6,17 +6,25 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct WelcomePageView: View {
+    
+    init() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.mainColor, .font: UIFont(name: "ArialRoundedMTBold", size: 25)!]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.mainColor, .font: UIFont(name: "ArialRoundedMTBold", size: 18)!]
+
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
+    }
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading, spacing: 15) {
-                    Text("Welcome")
-                        .foregroundColor(.mainColor)
-                        .font(.system(.title, design: .rounded))
-                        .fontWeight(.medium)
-                    Text("Please login or sign up to continue using our app.")
+                    Text("Welcome, please login or sign up to continue using our app.")
                         .font(.system(.subheadline))
                         .foregroundColor(.secondary)
                 }
@@ -49,7 +57,7 @@ struct WelcomePageView: View {
                         Text("You already have an account?")
                             .foregroundColor(.secondary)
                         NavigationLink {
-                            Text("Login page")
+                            LoginPageView()
                         } label: {
                             Text("Login")
                                 .foregroundColor(.mainColor)
@@ -59,6 +67,7 @@ struct WelcomePageView: View {
                 }
             }
             .padding()
+            .navigationTitle(Text("EasyFind"))
         }
     }
 }
