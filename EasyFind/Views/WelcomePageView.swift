@@ -10,18 +10,6 @@ import UIKit
 
 struct WelcomePageView: View {
     
-    init() {
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.mainColor, .font: UIFont(name: "ArialRoundedMTBold", size: 25)!]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.mainColor, .font: UIFont(name: "ArialRoundedMTBold", size: 18)!]
-        
-        navBarAppearance.setBackIndicatorImage(UIImage(systemName: "arrow.turn.up.left"), transitionMaskImage: UIImage(systemName: "arrow.turn.up.left"))
-
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-        UINavigationBar.appearance().compactAppearance = navBarAppearance
-    }
-    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
