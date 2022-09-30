@@ -9,8 +9,18 @@ import Foundation
 
 
 struct Constants {
+    static let appName = "EasyFind"
     static let purpleThemeColor = "PurpleTheme"
-    static let signInTitle = "Sign In"
+    static let loginText = "Log in"
+    static let signUpText = "Sign Up"
+    static let forgotPasswordText = "Forgot password?"
     static let loginMessage = "Login to access your account."
-    static let createAccount = "Create an Account"
+    static let createAccount = "Create Account"
+    static let noAccountText = "Don't have an account?"
+    static let getStartedText = "Get Started"
+
+    static let alreadyUser = "You already have an account?"
+    static let welcomeText = "Welcome"
+    static let welcomeMessage = "Welcome, please login or sign up to continue using our app."
+
 }

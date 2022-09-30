@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 extension Color {
-  
-    /// Main branding colors
-  static let brand = Color("purpleAppColor")
-  static let mainColor = Color("purpleAppColor")
-  
+  /// Main branding colors
+    static let brand = Color("purpleAppColor")
+    static let mainColor = Color("purpleAppColor")
+    static let labelGrayColor = Color("labelGrayColor")
+    static let fieldBackgroundColor = Color("fieldBackgroundColor")
 }
