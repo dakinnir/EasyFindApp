@@ -10,41 +10,52 @@ import UIKit
 
 struct WelcomePageView: View {
     
+    @State private var showSignUpScreen = false
+    
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                VStack(alignment: .leading, spacing: 15) {
-                    Text("Welcome, please login or sign up to continue using our app.")
-                        .font(.system(.subheadline))
-                        .foregroundColor(.secondary)
-                }
+            VStack(alignment: .center) {
 
                 Spacer()
-
-                Image("painter")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
+                
+                VStack(alignment: .center, spacing: 15) {
+                    Text(Constants.appName)
+                        .font(.system(size: 40, design: .monospaced))
+                        .fontWeight(.semibold)
+                    Text(Constants.welcomeMessage)
+                        .font(.system(size: 17))
+                        .foregroundColor(.secondary)
+                        .lineLimit(4)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 50)
+                    
+                }
                 Spacer()
                 
                 VStack(spacing: 20) {
                     
-                    NavigationLink {
-                        SignUpPageView()
+                    Button {
+                        showSignUpScreen.toggle()
                     } label: {
-                        Text("Sign up")
-                            .font(.system(.title2, design: .rounded))
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.mainColor)
-                            .cornerRadius(8)
+                        HStack {
+                            Text(Constants.getStartedText)
+                            
+                            Image(systemName: "arrow.right")
+                        }
+                        .foregroundColor(.white)
+                        .font(.system(.title2, design: .rounded))
+                        .fontWeight(.medium)
+                        .frame(maxWidth: .infinity)
+
+                        
                     }
+                    .padding()
+                    .background(Color.mainColor)
+                    .cornerRadius(8)
 
                     
                     HStack {
-                        Text("You already have an account?")
+                        Text(Constants.alreadyUser)
                             .foregroundColor(.secondary)
                         NavigationLink {
                             LoginPageView()
@@ -55,9 +66,12 @@ struct WelcomePageView: View {
 
                     }
                 }
+                .padding()
             }
-            .padding()
-            .navigationTitle(Text("EasyFind"))
+        }
+        .fullScreenCover(isPresented: $showSignUpScreen) {
+            SignUpPageView()
+                .transition(.move(edge: .trailing))
         }
     }
 }

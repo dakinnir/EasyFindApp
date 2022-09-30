@@ -17,16 +17,21 @@ struct FormEntryField: View {
     // MARK: - Body
     var body: some View {
         
-        VStack(alignment: .leading) {
-                    
+        VStack(alignment: .leading, spacing: 5) {
+
             // Display secure entry field or the normal based on the isSecureEntry property
             if !isSecureEntry {
+                
                 TextField(placeHolderText, text: $entryText)
+                    .font(.system(size: 15))
+                    .textFieldStyle(CustomTextFieldBackgroundStyle())
+
+                
             } else {
                 SecureField(placeHolderText, text: $entryText)
+                    .font(.system(size: 15))
+                    .textFieldStyle(CustomTextFieldBackgroundStyle())
             }
-            Divider()
-                .foregroundColor(.secondary)
         }
     }
 }
@@ -34,6 +39,6 @@ struct FormEntryField: View {
 
 struct FormEntryField_Previews: PreviewProvider {
     static var previews: some View {
-        FormEntryField(entryText: .constant("Password"), placeHolderText: "Password", isSecureEntry: true)
+        FormEntryField(entryText: .constant("Password"), placeHolderText: "Password", isSecureEntry: false)
     }
 }
