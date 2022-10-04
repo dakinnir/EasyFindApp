@@ -8,8 +8,41 @@
 import SwiftUI
 
 struct ProfileTabView: View {
+    
+    let profileLinkNames: [String] = ["Account", "Bookmarks", "Work History", "Help", "Logout"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack(spacing: 0) {
+                List(profileLinkNames, id: \.self) { name in
+                    NavigationLink {
+                        Text("Hello")
+                    } label: {
+                        Text(name)
+                            .font(.body)
+                    }
+                }
+                .listStyle(.inset)
+            }
+            
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading, content: {
+                    // Text("Premium Member")
+                    Text("Painter")
+                        .font(.body)
+                        .foregroundColor(Color(.systemGray))
+                })
+                
+                ToolbarItem(placement: .navigationBarTrailing, content: {
+                    Image("painter")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle()) // Clip the image to a circle
+                })
+            })
+            .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
