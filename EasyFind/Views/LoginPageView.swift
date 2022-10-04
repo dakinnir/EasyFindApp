@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginPageView: View {
-
+    
     // MARK: - Properties
     @ObservedObject private var userLoginViewModel = UserLoginViewModel()
     
@@ -17,7 +17,7 @@ struct LoginPageView: View {
     @State private var showSignUpScreen = false
     @State private var showHomePageScreen = false
     @State private var showForgotPasswordPageScreen = false
-
+    
     
     // MARK: - Body
     var body: some View {
@@ -57,7 +57,7 @@ struct LoginPageView: View {
                                 
                             }
                         }
-
+                        
                         // Login Button
                         Button {
                             // Actions
@@ -95,32 +95,32 @@ struct LoginPageView: View {
                 }
             }
         }
-            .onTapGesture {
-                self.endEditing()
-            }
+        .onTapGesture {
             
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading:
-                                    Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                Image(systemName: "chevron.backward")
-                    .foregroundColor(.mainColor)
-            })
+        }
+        
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                Button {
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            Image(systemName: "chevron.backward")
+                .foregroundColor(.mainColor)
+        })
+        
+        .padding()
+        .fullScreenCover(isPresented: $showSignUpScreen) {
+            SignUpPageView()
+                .transition(.move(edge: .leading))
             
-            .padding()
-            .fullScreenCover(isPresented: $showSignUpScreen) {
-                SignUpPageView()
-                    .transition(.move(edge: .leading))
-                
-            }
-            .fullScreenCover(isPresented: $showHomePageScreen, content: {
-                ContentView()
-            })
-            
-            .fullScreenCover(isPresented: $showForgotPasswordPageScreen, content: {
-                ForgotPasswordPageView()
-            })
+        }
+        .fullScreenCover(isPresented: $showHomePageScreen, content: {
+            ContentView()
+        })
+        
+        .fullScreenCover(isPresented: $showForgotPasswordPageScreen, content: {
+            ForgotPasswordPageView()
+        })
         .navigationBarTitleDisplayMode(.inline)
     }
 }

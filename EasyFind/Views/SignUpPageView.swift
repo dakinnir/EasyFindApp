@@ -72,7 +72,7 @@ struct SignUpPageView: View {
         }
         // Use to dismiss the keyboard when the the view is tapped
         .onTapGesture {
-            self.endEditing()
+            
         }
         .padding()
         .fullScreenCover(isPresented: $showLoginScreen, content: {

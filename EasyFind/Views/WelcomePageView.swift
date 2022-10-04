@@ -32,6 +32,7 @@ struct WelcomePageView: View {
                 }
                 Spacer()
                 
+                // Button Options
                 VStack(spacing: 20) {
                     
                     Button {

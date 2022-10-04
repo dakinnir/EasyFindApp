@@ -21,62 +21,74 @@ struct ForgotPasswordPageView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                
-                Image(systemName: "multiply")
-                    .foregroundColor(.mainColor)
-                    .font(.title)
-            }
-            Spacer()
+            // Close Button
+            closeButton
             
-            ZStack {
-                
-                // MARK: - Form Fields
+            Spacer()
+
                 VStack(alignment: .leading) {
+                    // Page Title & Message
+                    headerSection
+                        .padding(.bottom, 40)
                     
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(Constants.forgotPasswordText.capitalized)
-                            .font(.title)
-                            .fontWeight(.semibold)
-                        
-                        Text(Constants.forgotPasswordMessage)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.bottom, 40)
-                    
+                    // MARK: - Form Fields
                     VStack(spacing: 30) {
-                        VStack(alignment: .leading) {
-                            FormEntryField(entryText: $userEmailAddress, placeHolderText: "Email", isSecureEntry: false)
-                        }
                         
-                        // Sign Up Button
-                        Button {
-                            // Actions
-                        } label: {
-                            Text(Constants.submitText)
-                                .foregroundColor(.init(uiColor: .systemBackground))
-                                .fontWeight(.semibold)
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                        }
-                        .padding()
-                        .background(Color.mainColor)
-                        .cornerRadius(10)
+                        FormEntryField(entryText: $userEmailAddress, placeHolderText: "Email", isSecureEntry: false)
+                    
+                        submitButton
                     }
                     .padding(.bottom, 40)
                 }
-                
-            }
             Spacer()
         }
         .onTapGesture {
-            self.endEditing()
         }
         .padding()
     }
+    
+    // Close Page Button
+    private var closeButton: some View {
+        Button {
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            
+            Image(systemName: "multiply")
+                .foregroundColor(.mainColor)
+                .font(.title)
+        }
+    }
+    
+    // Page Title & Message
+    private var headerSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(Constants.forgotPasswordText.capitalized)
+                .font(.title)
+                .fontWeight(.semibold)
+            
+            Text(Constants.forgotPasswordMessage)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+    }
+    
+    // Submit Email Buttton
+    private var submitButton: some View {
+        Button {
+            // Actions
+        } label: {
+            Text(Constants.submitText)
+                .foregroundColor(.init(uiColor: .systemBackground))
+                .fontWeight(.semibold)
+                .frame(minWidth: 0, maxWidth: .infinity)
+        }
+        .padding()
+        .background(Color.mainColor)
+        .cornerRadius(10)
+    }
+
 }
+
 struct ForgotPasswordPageView_Previews: PreviewProvider {
     static var previews: some View {
         ForgotPasswordPageView()
