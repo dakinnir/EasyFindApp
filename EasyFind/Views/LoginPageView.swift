@@ -39,60 +39,19 @@ struct LoginPageView: View {
                     // MARK: - Form Fields & Buttons
                     VStack {
                         
-                        FormEntryField(entryText: $userLoginViewModel.userEmail, placeHolderText: "Email",  isSecureEntry: false)
+                        formFieldsSection
                         
-                        FormEntryField(entryText: $userLoginViewModel.password, placeHolderText: "Password", isSecureEntry: true)
-                        
-                        HStack {
-                            Spacer()
-                            // Forget Password Button
-                            
-                            Button {
-                                // Destination
-                                showForgotPasswordPageScreen.toggle()
-                            } label: {
-                                Text(Constants.forgotPasswordText)
-                                    .foregroundColor(.mainColor)
-                                    .fontWeight(.medium)
-                                
-                            }
-                        }
-                        
-                        // Login Button
-                        Button {
-                            // Actions
-                            showHomePageScreen.toggle()
-                        } label: {
-                            Text(Constants.loginText)
-                                .foregroundColor(.init(uiColor: .systemBackground))
-                                .fontWeight(.semibold)
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                            
-                        }
-                        .padding()
-                        .background(Color.mainColor)
-                        .cornerRadius(10)
-                        .padding(.top)
+                        forgotPasswordButton
+                    
+                        loginButton
                     }
                     .padding(.bottom, 40)
                     
                 }
                 Spacer()
                 
-                
-                HStack {
-                    Text(Constants.noAccountText)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    Button {
-                        showSignUpScreen.toggle()
-                    } label: {
-                        Text("Register")
-                            .foregroundColor(.mainColor)
-                            .fontWeight(.medium)
-                    }
-                    
-                }
+                // MARK: - New User? Regiseter Option Button
+                registerOptionButton
             }
         }
         .onTapGesture {
@@ -122,6 +81,69 @@ struct LoginPageView: View {
             ForgotPasswordPageView()
         })
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    
+    // Form View
+    private var formFieldsSection: some View {
+        VStack {
+            FormEntryField(entryText: $userLoginViewModel.userEmail, placeHolderText: "Email",  isSecureEntry: false)
+            
+            FormEntryField(entryText: $userLoginViewModel.password, placeHolderText: "Password", isSecureEntry: true)
+        }
+    }
+    
+    // Forgot Password Button View
+    private var forgotPasswordButton: some View {
+        HStack {
+            Spacer()
+            // Forget Password Button
+            
+            Button {
+                // Destination
+                showForgotPasswordPageScreen.toggle()
+            } label: {
+                Text(Constants.forgotPasswordText)
+                    .foregroundColor(.mainColor)
+                    .fontWeight(.medium)
+                
+            }
+        }
+    }
+    
+    // Login Button
+
+    private var loginButton: some View {
+        Button {
+            // Actions
+            showHomePageScreen.toggle()
+        } label: {
+            Text(Constants.loginText)
+                .foregroundColor(.init(uiColor: .systemBackground))
+                .fontWeight(.semibold)
+                .frame(minWidth: 0, maxWidth: .infinity)
+            
+        }
+        .padding()
+        .background(Color.mainColor)
+        .cornerRadius(10)
+        .padding(.top)
+    }
+    
+    private var registerOptionButton: some View {
+        HStack {
+            Text(Constants.noAccountText)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            Button {
+                showSignUpScreen.toggle()
+            } label: {
+                Text("Register")
+                    .foregroundColor(.mainColor)
+                    .fontWeight(.medium)
+            }
+            
+        }
     }
 }
 

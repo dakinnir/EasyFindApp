@@ -21,13 +21,13 @@ struct ForgotPasswordPageView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            // Close Button
+            // MARK: - Close Button
             closeButton
             
             Spacer()
 
                 VStack(alignment: .leading) {
-                    // Page Title & Message
+                    // MARK: - Page Title & Message
                     headerSection
                         .padding(.bottom, 40)
                     
