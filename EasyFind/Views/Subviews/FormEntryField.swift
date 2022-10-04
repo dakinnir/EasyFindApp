@@ -12,7 +12,7 @@ struct FormEntryField: View {
     // MARK: - Properties
     @Binding var entryText: String
     var placeHolderText: String
-    var isSecureEntry: Bool
+    var isSecureEntry: Bool? = false
     
     // MARK: - Body
     var body: some View {
@@ -20,7 +20,7 @@ struct FormEntryField: View {
         VStack(alignment: .leading, spacing: 5) {
 
             // Display secure entry field or the normal based on the isSecureEntry property
-            if !isSecureEntry {
+            if !(isSecureEntry ?? true) {
                 
                 TextField(placeHolderText, text: $entryText)
                     .font(.system(size: 15))
@@ -39,6 +39,6 @@ struct FormEntryField: View {
 
 struct FormEntryField_Previews: PreviewProvider {
     static var previews: some View {
-        FormEntryField(entryText: .constant("Password"), placeHolderText: "Password", isSecureEntry: false)
+        FormEntryField(entryText: .constant("Password"), placeHolderText: "Password")
     }
 }
