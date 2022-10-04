@@ -8,19 +8,13 @@
 import SwiftUI
 
 struct SignUpPageView: View {
-    
-    private enum Field: Int, CaseIterable {
-        case name, email, password, confirmPassword
-    }
-    
+
     // MARK: Properties
     @ObservedObject private var userSignUpViewModel = UserSignUpViewModel()
     
     @Environment(\.presentationMode) var presentationMode
     @State private var showLoginScreen = false
     
-    @FocusState private var focusedField: Field?
-
     var body: some View {
         VStack {
             
@@ -31,25 +25,18 @@ struct SignUpPageView: View {
                 
                 Text(Constants.createAccount)
                     .font(.title)
-                
+                    .fontWeight(.semibold)
+
                 VStack(spacing: 30) {
                     VStack(alignment: .leading) {
                         
                         FormEntryField(entryText: $userSignUpViewModel.name, placeHolderText: "Name", isSecureEntry: false)
-                            .focused($focusedField, equals: .name)
 
-                        
                         FormEntryField(entryText: $userSignUpViewModel.userEmail, placeHolderText: "Email", isSecureEntry: false)
-                            .focused($focusedField, equals: .email)
-
                         
                         FormEntryField(entryText: $userSignUpViewModel.password, placeHolderText: "Password", isSecureEntry: true)
-                            .focused($focusedField, equals: .password)
-
                         
                         FormEntryField(entryText: $userSignUpViewModel.confirmPassword, placeHolderText: "Confirm password", isSecureEntry: true)
-                            .focused($focusedField, equals: .confirmPassword)
-
                     }
                     
                     // Sign Up Button
@@ -57,7 +44,7 @@ struct SignUpPageView: View {
                         // Actions
                     } label: {
                         Text(Constants.signUpText)
-                            .foregroundColor(.white)
+                            .foregroundColor(.init(uiColor: .systemBackground))
                             .fontWeight(.semibold)
                             .frame(minWidth: 0, maxWidth: .infinity)
                     }
@@ -83,13 +70,9 @@ struct SignUpPageView: View {
                 }
             }
         }
-        // Use to dismiss the keyboard when the done button at the top of keyboard is hit
-        .toolbar {
-            ToolbarItem(placement: .keyboard) {
-                Button("Done") {
-                    focusedField = nil
-                }
-            }
+        // Use to dismiss the keyboard when the the view is tapped
+        .onTapGesture {
+            self.endEditing()
         }
         .padding()
         .fullScreenCover(isPresented: $showLoginScreen, content: {
@@ -97,7 +80,6 @@ struct SignUpPageView: View {
 
             
         })
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

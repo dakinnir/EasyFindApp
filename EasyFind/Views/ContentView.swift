@@ -16,18 +16,25 @@ struct ContentView: View {
         TabView {
             ExplorePageView()
                 .tabItem {
-                Image(systemName: "hand.tap.fill")
+                Image(systemName: "magnifyingglass.circle.fill")
                 Text("Explore")
             }
-            Text("Bookmark Tab")
+//            Text("Bookmark Tab")
+//                .font(.system(size: 30, weight: .bold, design: .rounded)) .tabItem {
+//                    Image(systemName: "bookmark.circle.fill")
+//                    Text("Bookmark")
+//                }
+            
+            Text("Messages Tab")
                 .font(.system(size: 30, weight: .bold, design: .rounded)) .tabItem {
-                    Image(systemName: "bookmark.circle.fill")
-                    Text("Bookmark")
+                    Image(systemName: "envelope")
+                    Text("Messages")
                 }
-            Text("Recommendations Tab")
+            
+            Text("Work Tab")
                 .font(.system(size: 30, weight: .bold, design: .rounded)) .tabItem {
-                    Image(systemName: "star.circle.fill")
-                    Text("Recommendations")
+                    Image(systemName: "checkmark.circle.fill")
+                    Text("Work")
                 }
             
             Text("Notifications Tab")
@@ -35,8 +42,13 @@ struct ContentView: View {
                     Image(systemName: "bell.circle.fill")
                     Text("Notifications")
                 }
+            
+            ProfileTabView()
+                .font(.system(size: 30, weight: .bold, design: .rounded)) .tabItem {
+                    Image(systemName: "person.circle.fill")
+                    Text("Profile")
+                }
         }
-        .padding()
     }
 }
 
@@ -53,11 +65,13 @@ struct ExplorePageView: View {
         NavigationView {
             VStack {
                 SearchBarView(text: $searchEntry, searchBarPlaceholderText: "Search...")
+                    .padding(.horizontal)
                 Spacer()
                 Text("Explore Tab")
                         .font(.system(size: 30, weight: .bold, design: .rounded))
                 Spacer()
             }
+            .navigationTitle("Explore")
         }
     }
 }
@@ -71,6 +85,7 @@ struct SearchBarView: UIViewRepresentable {
     func makeUIView(context: Context) -> UISearchBar {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
+        searchBar.heightAnchor.constraint(equalToConstant: 40)
         searchBar.autocapitalizationType = .none
         searchBar.placeholder = searchBarPlaceholderText
         return searchBar
