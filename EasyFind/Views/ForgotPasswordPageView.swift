@@ -31,10 +31,10 @@ struct ForgotPasswordPageView: View {
                     headerSection
                         .padding(.bottom, 40)
                     
-                    // MARK: - Form Fields
+                    // MARK: - Form Fields & Button
                     VStack(spacing: 30) {
                         
-                        FormEntryField(entryText: $userEmailAddress, placeHolderText: "Email", isSecureEntry: false)
+                        formFieldSection
                     
                         submitButton
                     }
@@ -70,6 +70,11 @@ struct ForgotPasswordPageView: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }
+    }
+    
+    // Email Form Section
+    private var formFieldSection: some View {
+        FormEntryField(entryText: $userEmailAddress, placeHolderText: "Email", isSecureEntry: false)
     }
     
     // Submit Email Buttton
