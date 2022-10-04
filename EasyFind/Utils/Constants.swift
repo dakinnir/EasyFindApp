@@ -13,7 +13,11 @@ struct Constants {
     static let purpleThemeColor = "PurpleTheme"
     static let loginText = "Log in"
     static let signUpText = "Sign Up"
+    static let submitText = "Submit"
+
     static let forgotPasswordText = "Forgot password?"
+    static let forgotPasswordMessage = "Don't worry! It happens. Please enter the address associated with your account."
+
     static let loginMessage = "Login to access your account."
     static let createAccount = "Create Account"
     static let noAccountText = "Don't have an account?"
