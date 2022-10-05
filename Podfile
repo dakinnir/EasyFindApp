@@ -7,4 +7,5 @@ target 'EasyFind' do
 
   # Pods for EasyFind
   pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
 end
