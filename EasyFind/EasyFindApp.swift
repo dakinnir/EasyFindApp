@@ -15,10 +15,12 @@ struct EasyFindApp: App {
         FirebaseApp.configure()
     }
     
+    @StateObject var authViewModel = AuthenticationViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            WelcomePageView()
-                //.environmentObject(dataManager)
+            ContentView()
+                .environmentObject(authViewModel)
         }
     }
 }
