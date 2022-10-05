@@ -9,13 +9,9 @@ import SwiftUI
 
 struct ForgotPasswordPageView: View {
     
-    private enum Field: Int, CaseIterable {
-        case email
-    }
-    
     // MARK: Properties
     @Environment(\.presentationMode) var presentationMode
-    
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     @State var userEmailAddress = ""
     
     var body: some View {
@@ -74,13 +70,14 @@ struct ForgotPasswordPageView: View {
     
     // Email Form Section
     private var formFieldSection: some View {
-        FormEntryField(entryText: $userEmailAddress, placeHolderText: "Email", isSecureEntry: false)
+        FormEntryField(entryText: $userEmailAddress, placeHolderText: "Email")
     }
     
     // Submit Email Buttton
     private var submitButton: some View {
         Button {
             // Actions
+            authViewModel.forgotPassword(withEmail: userEmailAddress)
         } label: {
             Text(Constants.submitText)
                 .foregroundColor(.init(uiColor: .systemBackground))

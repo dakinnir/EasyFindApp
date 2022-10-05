@@ -11,7 +11,8 @@ struct SignUpPageView: View {
 
     // MARK: Properties
     @ObservedObject private var userSignUpViewModel = UserSignUpViewModel()
-    
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+
     @Environment(\.presentationMode) var presentationMode
     @State private var showLoginScreen = false
     
@@ -55,9 +56,9 @@ struct SignUpPageView: View {
     private var formFieldsSection: some View {
         VStack(alignment: .leading) {
             
-            FormEntryField(entryText: $userSignUpViewModel.name, placeHolderText: "Name", isSecureEntry: false)
+            FormEntryField(entryText: $userSignUpViewModel.name, placeHolderText: "Name")
 
-            FormEntryField(entryText: $userSignUpViewModel.userEmail, placeHolderText: "Email", isSecureEntry: false)
+            FormEntryField(entryText: $userSignUpViewModel.userEmail, placeHolderText: "Email")
             
             FormEntryField(entryText: $userSignUpViewModel.password, placeHolderText: "Password", isSecureEntry: true)
             
@@ -68,6 +69,7 @@ struct SignUpPageView: View {
     private var signUpButton: some View {
         Button {
             // Actions
+            try? authViewModel.registerUser(withName: userSignUpViewModel.name, withEmail: userSignUpViewModel.userEmail, withPassword: userSignUpViewModel.password)
         } label: {
             Text(Constants.signUpText)
                 .foregroundColor(.init(uiColor: .systemBackground))

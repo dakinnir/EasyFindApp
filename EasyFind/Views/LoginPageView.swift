@@ -12,11 +12,13 @@ struct LoginPageView: View {
     // MARK: - Properties
     @ObservedObject private var userLoginViewModel = UserLoginViewModel()
     
-    @Environment(\.presentationMode) var presentationMode
-    
+
     @State private var showSignUpScreen = false
     @State private var showHomePageScreen = false
     @State private var showForgotPasswordPageScreen = false
+    
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     
     
     // MARK: - Body
@@ -87,7 +89,7 @@ struct LoginPageView: View {
     // Form View
     private var formFieldsSection: some View {
         VStack {
-            FormEntryField(entryText: $userLoginViewModel.userEmail, placeHolderText: "Email",  isSecureEntry: false)
+            FormEntryField(entryText: $userLoginViewModel.userEmail, placeHolderText: "Email")
             
             FormEntryField(entryText: $userLoginViewModel.password, placeHolderText: "Password", isSecureEntry: true)
         }
@@ -116,7 +118,7 @@ struct LoginPageView: View {
     private var loginButton: some View {
         Button {
             // Actions
-            showHomePageScreen.toggle()
+            authViewModel.loginUser(withEmail: userLoginViewModel.userEmail, withPassword: userLoginViewModel.password)
         } label: {
             Text(Constants.loginText)
                 .foregroundColor(.init(uiColor: .systemBackground))
