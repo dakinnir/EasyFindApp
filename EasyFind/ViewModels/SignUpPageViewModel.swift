@@ -14,4 +14,8 @@ class UserSignUpViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
 
+    // Return true if all fields are satisfied
+    var validEntries: Bool {
+        return !name.isEmpty && !userEmail.isEmpty && !password.isEmpty && !confirmPassword.isEmpty
+    }
 }

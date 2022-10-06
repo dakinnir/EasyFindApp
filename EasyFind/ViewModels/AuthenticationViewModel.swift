@@ -29,32 +29,35 @@ class AuthenticationViewModel: ObservableObject {
             }
         }
     }
-    
+     
     // MARK: - Login User
-    public func loginUser(withEmail email: String, withPassword password: String) {
+    public func loginUser(withEmail email: String, withPassword password: String, completion: @escaping (String?) -> Void)  {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let err = error {
                 print("DEBUG: Failed to register user \(err.localizedDescription)")
+                completion(err.localizedDescription)
                 return
             }
             
+            completion(nil)
             guard let userLoggedIn = result?.user else { return }
             self.currentUserSession = userLoggedIn
         }
     }
     
     // MARK: - Register User
-    public func registerUser(withName fullName: String, withEmail email: String, withPassword password: String) throws {
+    public func registerUser(withName fullName: String, withEmail email: String, withPassword password: String, completion: @escaping (String?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let err = error {
                 print("DEBUG: Failed to register user \(err.localizedDescription)")
+                completion(err.localizedDescription)
                 return
             }
             
             guard let user = result?.user else { return }
             
             self.currentUserSession = user
-            
+            completion(nil)
             print("DEBUG: User is successfully registered \(user)")
             self.firestoreRef.collection("/users").addDocument(data: [
                 "name": fullName,

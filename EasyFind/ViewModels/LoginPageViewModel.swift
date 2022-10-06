@@ -13,4 +13,8 @@ class UserLoginViewModel: ObservableObject {
     @Published var userEmail: String = ""
     @Published var password: String = ""
 
+    // Return true if all fields are satisfied
+    var validEntries: Bool {
+        return !userEmail.isEmpty && !password.isEmpty
+    }
 }
