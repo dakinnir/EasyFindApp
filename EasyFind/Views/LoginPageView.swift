@@ -12,6 +12,8 @@ struct LoginPageView: View {
     // MARK: - Properties
     @ObservedObject private var userLoginViewModel = UserLoginViewModel()
     
+    @State private var error: String?
+    @State private var showAlert: Bool = false
 
     @State private var showSignUpScreen = false
     @State private var showHomePageScreen = false
@@ -56,6 +58,12 @@ struct LoginPageView: View {
                 registerOptionButton
             }
         }
+        
+        .alert("Error with Log In", isPresented: $showAlert, actions: {
+            Text("OK")
+        }, message: {
+            Text(self.error ?? "")
+        })
         .onTapGesture {
             
         }
@@ -118,7 +126,12 @@ struct LoginPageView: View {
     private var loginButton: some View {
         Button {
             // Actions
-            authViewModel.loginUser(withEmail: userLoginViewModel.userEmail, withPassword: userLoginViewModel.password)
+            authViewModel.loginUser(withEmail: userLoginViewModel.userEmail, withPassword: userLoginViewModel.password) { result in
+                if let err = result {
+                    self.error = err
+                    showAlert.toggle()
+                }
+            }
         } label: {
             Text(Constants.loginText)
                 .foregroundColor(.init(uiColor: .systemBackground))
@@ -127,9 +140,13 @@ struct LoginPageView: View {
             
         }
         .padding()
-        .background(Color.mainColor)
+        // Dim the color of button until user has entered all fields
+        .background(userLoginViewModel.validEntries ? Color.mainColor : Color.mainColor.opacity(0.4))
         .cornerRadius(10)
         .padding(.top)
+        .disabled(
+            !userLoginViewModel.validEntries
+        )
     }
     
     private var registerOptionButton: some View {

@@ -15,6 +15,8 @@ struct SignUpPageView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @State private var showLoginScreen = false
+    @State private var error: String?
+    @State private var showAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -41,6 +43,13 @@ struct SignUpPageView: View {
             // MARK: - Already A User? Login Option Button
             loginOptionButton
         }
+        // Alert when there's an error creating new user
+        .alert("Error with Log In", isPresented: $showAlert, actions: {
+            Text("OK")
+        }, message: {
+            Text(self.error ?? "")
+        })
+        
         // Use to dismiss the keyboard when anywhere on the view is tapped
         .onTapGesture {
             
@@ -69,7 +78,12 @@ struct SignUpPageView: View {
     private var signUpButton: some View {
         Button {
             // Actions
-            try? authViewModel.registerUser(withName: userSignUpViewModel.name, withEmail: userSignUpViewModel.userEmail, withPassword: userSignUpViewModel.password)
+            authViewModel.registerUser(withName: userSignUpViewModel.name, withEmail: userSignUpViewModel.userEmail, withPassword: userSignUpViewModel.password) { result in
+                if let error = result {
+                    self.error = error
+                    showAlert.toggle()
+                }
+            }
         } label: {
             Text(Constants.signUpText)
                 .foregroundColor(.init(uiColor: .systemBackground))
@@ -77,8 +91,12 @@ struct SignUpPageView: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
         }
         .padding()
-        .background(Color.mainColor)
+        .background(
+            userSignUpViewModel.validEntries ? Color.mainColor : Color.mainColor.opacity(0.4))
         .cornerRadius(10)
+        .disabled(
+            !userSignUpViewModel.validEntries
+        )
     }
     
     
