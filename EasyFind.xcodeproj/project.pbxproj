@@ -9,20 +9,23 @@
 /* Begin PBXBuildFile section */
 		3A0359AA28E36145004362F5 /* WelcomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0359A928E36145004362F5 /* WelcomePageView.swift */; };
 		3A0359AE28E36FC8004362F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0359AD28E36FC8004362F5 /* Constants.swift */; };
-		3A0359B528E370E5004362F5 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0359B428E370E5004362F5 /* Color+Extensions.swift */; };
+		3A0359B528E370E5004362F5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0359B428E370E5004362F5 /* Color+Extension.swift */; };
 		3A53B90628E4C1CD0099A35E /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90528E4C1CD0099A35E /* LoginPageView.swift */; };
 		3A53B90828E4C1F30099A35E /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90728E4C1F30099A35E /* LoginPageViewModel.swift */; };
-		3A53B90A28E4D0430099A35E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90928E4D0430099A35E /* UIColor+Extensions.swift */; };
+		3A53B90A28E4D0430099A35E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90928E4D0430099A35E /* UIColor+Extension.swift */; };
 		3A53B90D28E4D1260099A35E /* FormEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90C28E4D1260099A35E /* FormEntryField.swift */; };
 		3A53B90F28E4D2D20099A35E /* SignUpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B90E28E4D2D20099A35E /* SignUpPageView.swift */; };
 		3A53B91128E4D2FD0099A35E /* SignUpPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A53B91028E4D2FD0099A35E /* SignUpPageViewModel.swift */; };
 		3A55622228E6044E00A2AA92 /* CustomTextFieldBackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A55622128E6044E00A2AA92 /* CustomTextFieldBackgroundStyle.swift */; };
 		3A7575DE28EC89E200B3CFC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A7575DD28EC89E100B3CFC1 /* GoogleService-Info.plist */; };
-		3AA26BB228E735BB00D098F5 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA26BB128E735BA00D098F5 /* ProfileTabView.swift */; };
 		3ABA50B328D77F9600C59961 /* EasyFindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA50B228D77F9600C59961 /* EasyFindApp.swift */; };
 		3ABA50B528D77F9600C59961 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA50B428D77F9600C59961 /* ContentView.swift */; };
 		3ABA50B728D77F9C00C59961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABA50B628D77F9C00C59961 /* Assets.xcassets */; };
 		3ABA50BA28D77F9C00C59961 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABA50B928D77F9C00C59961 /* Preview Assets.xcassets */; };
+		3ABDDE2E28EC962A007B65AB /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDDE2D28EC962A007B65AB /* AuthenticationViewModel.swift */; };
+		3ABDDE3028EC9865007B65AB /* UIKit+SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDDE2F28EC9865007B65AB /* UIKit+SearchBarView.swift */; };
+		3ABDDE3428EC9A40007B65AB /* ExploreTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDDE3328EC9A40007B65AB /* ExploreTabView.swift */; };
+		3ABDDE3628ECA086007B65AB /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDDE3528ECA086007B65AB /* ProfileTabView.swift */; };
 		3AE0876D28EB5EA90025FC6C /* ForgotPasswordPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0876C28EB5EA90025FC6C /* ForgotPasswordPageView.swift */; };
 		7FAE7359C07A70E33317D2AA /* Pods_EasyFind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E9836918B9E90700972AAD /* Pods_EasyFind.framework */; };
 /* End PBXBuildFile section */
@@ -30,21 +33,24 @@
 /* Begin PBXFileReference section */
 		3A0359A928E36145004362F5 /* WelcomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageView.swift; sourceTree = "<group>"; };
 		3A0359AD28E36FC8004362F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3A0359B428E370E5004362F5 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		3A0359B428E370E5004362F5 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		3A53B90528E4C1CD0099A35E /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		3A53B90728E4C1F30099A35E /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
-		3A53B90928E4D0430099A35E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		3A53B90928E4D0430099A35E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3A53B90C28E4D1260099A35E /* FormEntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEntryField.swift; sourceTree = "<group>"; };
 		3A53B90E28E4D2D20099A35E /* SignUpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageView.swift; sourceTree = "<group>"; };
 		3A53B91028E4D2FD0099A35E /* SignUpPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageViewModel.swift; sourceTree = "<group>"; };
 		3A55622128E6044E00A2AA92 /* CustomTextFieldBackgroundStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldBackgroundStyle.swift; sourceTree = "<group>"; };
 		3A7575DD28EC89E100B3CFC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3AA26BB128E735BA00D098F5 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		3ABA50AF28D77F9600C59961 /* EasyFind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABA50B228D77F9600C59961 /* EasyFindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyFindApp.swift; sourceTree = "<group>"; };
 		3ABA50B428D77F9600C59961 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3ABA50B628D77F9C00C59961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ABA50B928D77F9C00C59961 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3ABDDE2D28EC962A007B65AB /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		3ABDDE2F28EC9865007B65AB /* UIKit+SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+SearchBarView.swift"; sourceTree = "<group>"; };
+		3ABDDE3328EC9A40007B65AB /* ExploreTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabView.swift; sourceTree = "<group>"; };
+		3ABDDE3528ECA086007B65AB /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		3AE0876C28EB5EA90025FC6C /* ForgotPasswordPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPageView.swift; sourceTree = "<group>"; };
 		55B7F782D9665D10421A0CF1 /* Pods-EasyFind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFind.debug.xcconfig"; path = "Target Support Files/Pods-EasyFind/Pods-EasyFind.debug.xcconfig"; sourceTree = "<group>"; };
 		64A98853DBC9466D1ECD2538 /* Pods-EasyFind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFind.release.xcconfig"; path = "Target Support Files/Pods-EasyFind/Pods-EasyFind.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,9 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				3A55622028E6042C00A2AA92 /* CustomStyles */,
-				3A0359B428E370E5004362F5 /* Color+Extensions.swift */,
-				3A53B90928E4D0430099A35E /* UIColor+Extensions.swift */,
 				3A0359AD28E36FC8004362F5 /* Constants.swift */,
+				3ABDDE3128EC987D007B65AB /* UIKit */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			children = (
 				3A53B90728E4C1F30099A35E /* LoginPageViewModel.swift */,
 				3A53B91028E4D2FD0099A35E /* SignUpPageViewModel.swift */,
+				3ABDDE2D28EC962A007B65AB /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -103,9 +109,10 @@
 		3A0359B128E36FE7004362F5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3ABA50B428D77F9600C59961 /* ContentView.swift */,
+				3ABDDE3228EC9A24007B65AB /* TabBar Views */,
 				3A53B90B28E4D10B0099A35E /* Subviews */,
 				3A0359A928E36145004362F5 /* WelcomePageView.swift */,
-				3ABA50B428D77F9600C59961 /* ContentView.swift */,
 				3A53B90528E4C1CD0099A35E /* LoginPageView.swift */,
 				3A53B90E28E4D2D20099A35E /* SignUpPageView.swift */,
 				3AE0876C28EB5EA90025FC6C /* ForgotPasswordPageView.swift */,
@@ -118,6 +125,15 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3A4CCCD128EF34D800D7E066 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3A0359B428E370E5004362F5 /* Color+Extension.swift */,
+				3A53B90928E4D0430099A35E /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3A53B90B28E4D10B0099A35E /* Subviews */ = {
@@ -162,10 +178,10 @@
 				3A0359B228E37001004362F5 /* Models */,
 				3A0359B128E36FE7004362F5 /* Views */,
 				3A0359B028E36FD4004362F5 /* ViewModels */,
+				3A4CCCD128EF34D800D7E066 /* Extensions */,
 				3A0359AF28E36FCC004362F5 /* Utils */,
 				3ABA50B628D77F9C00C59961 /* Assets.xcassets */,
 				3ABA50B828D77F9C00C59961 /* Preview Content */,
-				3AA26BB128E735BA00D098F5 /* ProfileTabView.swift */,
 			);
 			path = EasyFind;
 			sourceTree = "<group>";
@@ -176,6 +192,23 @@
 				3ABA50B928D77F9C00C59961 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3ABDDE3128EC987D007B65AB /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				3ABDDE2F28EC9865007B65AB /* UIKit+SearchBarView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		3ABDDE3228EC9A24007B65AB /* TabBar Views */ = {
+			isa = PBXGroup;
+			children = (
+				3ABDDE3328EC9A40007B65AB /* ExploreTabView.swift */,
+				3ABDDE3528ECA086007B65AB /* ProfileTabView.swift */,
+			);
+			path = "TabBar Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,19 +326,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A0359B528E370E5004362F5 /* Color+Extensions.swift in Sources */,
+				3A0359B528E370E5004362F5 /* Color+Extension.swift in Sources */,
 				3AE0876D28EB5EA90025FC6C /* ForgotPasswordPageView.swift in Sources */,
 				3ABA50B528D77F9600C59961 /* ContentView.swift in Sources */,
 				3ABA50B328D77F9600C59961 /* EasyFindApp.swift in Sources */,
 				3A53B91128E4D2FD0099A35E /* SignUpPageViewModel.swift in Sources */,
+				3ABDDE3028EC9865007B65AB /* UIKit+SearchBarView.swift in Sources */,
 				3A53B90D28E4D1260099A35E /* FormEntryField.swift in Sources */,
-				3A53B90A28E4D0430099A35E /* UIColor+Extensions.swift in Sources */,
-				3AA26BB228E735BB00D098F5 /* ProfileTabView.swift in Sources */,
+				3ABDDE2E28EC962A007B65AB /* AuthenticationViewModel.swift in Sources */,
+				3A53B90A28E4D0430099A35E /* UIColor+Extension.swift in Sources */,
 				3A0359AA28E36145004362F5 /* WelcomePageView.swift in Sources */,
 				3A0359AE28E36FC8004362F5 /* Constants.swift in Sources */,
 				3A55622228E6044E00A2AA92 /* CustomTextFieldBackgroundStyle.swift in Sources */,
+				3ABDDE3628ECA086007B65AB /* ProfileTabView.swift in Sources */,
 				3A53B90F28E4D2D20099A35E /* SignUpPageView.swift in Sources */,
 				3A53B90828E4C1F30099A35E /* LoginPageViewModel.swift in Sources */,
+				3ABDDE3428EC9A40007B65AB /* ExploreTabView.swift in Sources */,
 				3A53B90628E4C1CD0099A35E /* LoginPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
