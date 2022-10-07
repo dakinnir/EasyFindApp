@@ -10,7 +10,8 @@ import SwiftUI
 enum ProfileTabMenuItems: String, CaseIterable {
     case account = "account"
     case settings = "settings"
-    case notifications = "notifications"
+    case help = "help"
+    case privacy = "privacy"
     case logout = "logout"
     
     var description: String {
@@ -53,13 +54,6 @@ struct ProfileTabView: View {
             }
             
             .toolbar(content: {
-                ToolbarItem(placement: .navigationBarLeading, content: {
-                    // Text("Premium Member")
-                    Text("Painter")
-                        .font(.body)
-                        .foregroundColor(Color(.systemGray))
-                })
-                
                 ToolbarItem(placement: .navigationBarTrailing, content: {
                     Image("painter")
                         .resizable()

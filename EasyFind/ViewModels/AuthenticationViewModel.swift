@@ -13,20 +13,35 @@ class AuthenticationViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var currentUserSession: User?
-    
+    @Published var isLoading = false
+
     let firestoreRef = Firestore.firestore()  // Reference to Firestore
 
     init() {
         self.currentUserSession = Auth.auth().currentUser
     }
     
+    func updateIsLoading() {
+        DispatchQueue.main.async {
+            do {
+                self.isLoading = false
+            }
+        }
+    }
     // MARK: - Forgot Password
 
-    public func forgotPassword(withEmail email: String) {
+    public func forgotPassword(withEmail email: String, completion: @escaping (String?) -> Void) {
+        isLoading = true
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let error = error {
                 print(error.localizedDescription)
+                self.updateIsLoading()
+                completion(error.localizedDescription)
+                return
             }
+            self.updateIsLoading()
+            completion(nil)
+
         }
     }
      

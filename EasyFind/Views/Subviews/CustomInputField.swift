@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FormEntryField: View {
+struct CustomInputField: View {
     
     // MARK: - Properties
     @Binding var entryText: String
@@ -39,6 +39,6 @@ struct FormEntryField: View {
 
 struct FormEntryField_Previews: PreviewProvider {
     static var previews: some View {
-        FormEntryField(entryText: .constant("Password"), placeHolderText: "Password")
+        CustomInputField(entryText: .constant("Password"), placeHolderText: "Password")
     }
 }

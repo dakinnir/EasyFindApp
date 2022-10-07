@@ -65,19 +65,20 @@ struct SignUpPageView: View {
     private var formFieldsSection: some View {
         VStack(alignment: .leading) {
             
-            FormEntryField(entryText: $userSignUpViewModel.name, placeHolderText: "Name")
+            CustomInputField(entryText: $userSignUpViewModel.name, placeHolderText: "Name")
 
-            FormEntryField(entryText: $userSignUpViewModel.userEmail, placeHolderText: "Email")
+            CustomInputField(entryText: $userSignUpViewModel.userEmail, placeHolderText: "Email")
             
-            FormEntryField(entryText: $userSignUpViewModel.password, placeHolderText: "Password", isSecureEntry: true)
+            CustomInputField(entryText: $userSignUpViewModel.password, placeHolderText: "Password", isSecureEntry: true)
             
-            FormEntryField(entryText: $userSignUpViewModel.confirmPassword, placeHolderText: "Confirm password", isSecureEntry: true)
+            CustomInputField(entryText: $userSignUpViewModel.confirmPassword, placeHolderText: "Confirm password", isSecureEntry: true)
         }
     }
     
     private var signUpButton: some View {
         Button {
             // Actions
+            
             authViewModel.registerUser(withName: userSignUpViewModel.name, withEmail: userSignUpViewModel.userEmail, withPassword: userSignUpViewModel.password) { result in
                 if let error = result {
                     self.error = error

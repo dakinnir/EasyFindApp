@@ -14,6 +14,8 @@ struct Constants {
     static let loginText = "Log in"
     static let signUpText = "Sign Up"
     static let submitText = "Submit"
+    static let resetButtonText = "Send Reset Password"
+
 
     static let forgotPasswordText = "Forgot password?"
     static let forgotPasswordMessage = "Don't worry! It happens. Please enter the address associated with your account."

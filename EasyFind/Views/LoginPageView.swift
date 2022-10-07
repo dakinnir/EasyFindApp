@@ -80,12 +80,10 @@ struct LoginPageView: View {
         .padding()
         .fullScreenCover(isPresented: $showSignUpScreen) {
             SignUpPageView()
-                .transition(.move(edge: .leading))
-            
         }
-        .fullScreenCover(isPresented: $showHomePageScreen, content: {
-            ContentView()
-        })
+//        .fullScreenCover(isPresented: $showHomePageScreen, content: {
+//            ContentView()
+//        })
         
         .fullScreenCover(isPresented: $showForgotPasswordPageScreen, content: {
             ForgotPasswordPageView()
@@ -97,9 +95,9 @@ struct LoginPageView: View {
     // Form View
     private var formFieldsSection: some View {
         VStack {
-            FormEntryField(entryText: $userLoginViewModel.userEmail, placeHolderText: "Email")
+            CustomInputField(entryText: $userLoginViewModel.userEmail, placeHolderText: "Email")
             
-            FormEntryField(entryText: $userLoginViewModel.password, placeHolderText: "Password", isSecureEntry: true)
+            CustomInputField(entryText: $userLoginViewModel.password, placeHolderText: "Password", isSecureEntry: true)
         }
     }
     
