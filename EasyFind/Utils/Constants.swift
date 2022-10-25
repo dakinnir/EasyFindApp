@@ -13,6 +13,7 @@ struct Constants {
     static let purpleThemeColor = "PurpleTheme"
     static let loginText = "Log in"
     static let signUpText = "Sign Up"
+    static let welcomeBackText = "Welcome back"
     static let submitText = "Submit"
     static let resetButtonText = "Send Reset Password"
 
@@ -27,6 +28,6 @@ struct Constants {
 
     static let alreadyUser = "You already have an account?"
     static let welcomeText = "Welcome"
-    static let welcomeMessage = "Welcome, please login or sign up to continue using our app."
+    static let welcomeMessage = "Welcome, sign up to create an account with us."
 
 }
