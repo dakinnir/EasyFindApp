@@ -10,56 +10,65 @@ import SwiftUI
 struct SignUpPageView: View {
 
     // MARK: Properties
-    @ObservedObject private var userSignUpViewModel = UserSignUpViewModel()
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-
     @Environment(\.presentationMode) var presentationMode
-    @State private var showLoginScreen = false
+    
+    @ObservedObject private var userSignUpViewModel = UserSignUpViewModel()
     @State private var error: String?
     @State private var showAlert: Bool = false
     
     var body: some View {
         VStack {
-            
             Spacer()
-            
-            VStack(alignment: .leading) {
-                
-                // MARK: - Page Title
-                Text(Constants.createAccount)
-                    .font(.title)
-                    .fontWeight(.semibold)
-
-                // MARK: - Form Section & Button
-                VStack(spacing: 30) {
-                    formFieldsSection
-                    
-                    signUpButton
+            VStack(spacing: 50) {
+                VStack(alignment: .center, spacing: 10) {
+                    Text(Constants.appName)
+                        .font(.system(size: 40, design: .monospaced))
+                        .fontWeight(.semibold)
+                    Text(Constants.welcomeMessage)
+                        .font(.system(size: 14))
+                        .foregroundColor(.secondary)
+                        .lineLimit(nil)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 80)
                 }
+
+                VStack(alignment: .leading) {
+                    
+                    // MARK: - Page Title
+                    
+
+                    // MARK: - Form Section & Button
+                    VStack(spacing: 30) {
+                        formFieldsSection
+                        
+                        signUpButton
+                    }
+                }
+                Spacer()
             }
-            
-            Spacer()
-            
-            // MARK: - Already A User? Login Option Button
-            loginOptionButton
         }
+        .padding()
+
         // Alert when there's an error creating new user
         .alert("Error with Log In", isPresented: $showAlert, actions: {
             Text("OK")
         }, message: {
             Text(self.error ?? "")
         })
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                Button {
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            Image(systemName: "chevron.backward")
+                .foregroundColor(.mainColor)
+        })
         
         // Use to dismiss the keyboard when anywhere on the view is tapped
         .onTapGesture {
             
         }
-        .padding()
-        .fullScreenCover(isPresented: $showLoginScreen, content: {
-            LoginPageView()                .transition(.move(edge: .trailing))
-
-            
-        })
     }
     
     private var formFieldsSection: some View {
@@ -98,22 +107,6 @@ struct SignUpPageView: View {
         .disabled(
             !userSignUpViewModel.validEntries
         )
-    }
-    
-    
-    private var loginOptionButton: some View {
-        HStack {
-            Text(Constants.alreadyUser)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            Button {
-                showLoginScreen.toggle()
-            } label: {
-                Text(Constants.loginText)
-                    .foregroundColor(.mainColor)
-                    .fontWeight(.medium)
-            }
-        }
     }
 }
 

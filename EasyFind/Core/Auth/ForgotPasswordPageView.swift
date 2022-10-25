@@ -12,23 +12,22 @@ struct ForgotPasswordPageView: View {
     // MARK: Properties
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var authViewModel: AuthenticationViewModel
+    
     @State var userEmailAddress = ""
     @State var isValidEmail: Bool = false
     @State var buttonPressed: Bool = false
     
     var body: some View {
         VStack(alignment: .center) {
-            
-            // MARK: - Close Button
-            
+                        
             Spacer()
 
             VStack(alignment: .leading) {
-                // MARK: - Page Title & Message
+                // page title & message
                 headerSection
                     .padding(.bottom, 40)
                 
-                // MARK: - Form Fields & Button
+                // form fields & buttons
                 VStack(spacing: 30) {
                     
                     formFieldSection
@@ -74,7 +73,7 @@ struct ForgotPasswordPageView: View {
         .padding()
     }
     
-    // Close Page Button
+    // MARK: - Close Page Button
     private var loginBackButton: some View {
         HStack {
             Text("You remember your password?")
@@ -90,7 +89,7 @@ struct ForgotPasswordPageView: View {
         }
     }
     
-    // Page Title & Message
+    // MARK: - Page Title & Message
     private var headerSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(Constants.forgotPasswordText.capitalized)
@@ -98,18 +97,17 @@ struct ForgotPasswordPageView: View {
                 .fontWeight(.semibold)
             
             Text(Constants.forgotPasswordMessage)
-                .font(.subheadline)
+                .font(.system(size: 14))
                 .foregroundColor(.secondary)
         }
     }
     
-    // Email Form Section
+    // MARK: - Email Form Section
     private var formFieldSection: some View {
         CustomInputField(entryText: $userEmailAddress, placeHolderText: "Email")
                     
     }
-    
-    // Submit Email Buttton
+    // MARK: - Submit Email Buttton
     private var resetPasswordButton: some View {
         Button {
             // Actions
@@ -131,8 +129,13 @@ struct ForgotPasswordPageView: View {
                 
         }
         .padding()
-        .background(Color.mainColor)
+        .background(
+            !userEmailAddress.isEmpty ? Color.mainColor : Color.mainColor.opacity(0.4)
+        )
         .cornerRadius(10)
+        .disabled(
+            userEmailAddress.isEmpty
+        )
     }
 
 }
@@ -140,5 +143,6 @@ struct ForgotPasswordPageView: View {
 struct ForgotPasswordPageView_Previews: PreviewProvider {
     static var previews: some View {
         ForgotPasswordPageView()
+            .environmentObject(AuthenticationViewModel())
     }
 }

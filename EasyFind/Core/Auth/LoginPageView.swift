@@ -25,74 +25,63 @@ struct LoginPageView: View {
     
     // MARK: - Body
     var body: some View {
-        ZStack {
-            VStack {
-                Spacer()
-                
-                VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(Constants.loginText.capitalized)
-                            .font(.title)
-                            .fontWeight(.semibold)
-                        
-                        Text(Constants.loginMessage)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.bottom, 40)
-                    // MARK: - Form Fields & Buttons
-                    VStack {
-                        
-                        formFieldsSection
-                        
-                        forgotPasswordButton
+        NavigationView {
+            ZStack {
+                VStack {
+                    Spacer()
                     
-                        loginButton
+                    // welcome back text, message, & forms
+                    VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            // title text
+                            Text("\(Constants.welcomeBackText), user.")
+                                .font(.title)
+                                .fontWeight(.semibold)
+                            // login message
+                            Text(Constants.loginMessage)
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.bottom, 40)
+                        
+                        // form fields & button
+                        VStack {
+                            
+                            formFieldsSection
+                            
+                            forgotPasswordButton
+                        
+                            loginButton
+                        }
+                        .padding(.bottom, 40)
+                        
                     }
-                    .padding(.bottom, 40)
+                    Spacer()
                     
+                    // new User? regiseter option button
+                    registerOptionButton
                 }
-                Spacer()
-                
-                // MARK: - New User? Regiseter Option Button
-                registerOptionButton
             }
-        }
-        
-        .alert("Error with Log In", isPresented: $showAlert, actions: {
-            Text("OK")
-        }, message: {
-            Text(self.error ?? "")
-        })
-        .onTapGesture {
             
-        }
-        
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-                                Button {
-            presentationMode.wrappedValue.dismiss()
-        } label: {
-            Image(systemName: "chevron.backward")
-                .foregroundColor(.mainColor)
-        })
-        
-        .padding()
-        .fullScreenCover(isPresented: $showSignUpScreen) {
-            SignUpPageView()
-        }
-//        .fullScreenCover(isPresented: $showHomePageScreen, content: {
-//            ContentView()
-//        })
-        
-        .fullScreenCover(isPresented: $showForgotPasswordPageScreen, content: {
-            ForgotPasswordPageView()
-        })
+            .alert("Error with Log In", isPresented: $showAlert, actions: {
+                Text("OK")
+            }, message: {
+                Text(self.error ?? "")
+            })
+            .onTapGesture {
+                
+            }
+            
+            .padding()
+            .fullScreenCover(isPresented: $showForgotPasswordPageScreen, content: {
+                ForgotPasswordPageView()
+            })
         .navigationBarTitleDisplayMode(.inline)
+        }
     }
     
     
-    // Form View
+    // MARK: - Form Fields Section
     private var formFieldsSection: some View {
         VStack {
             CustomInputField(entryText: $userLoginViewModel.userEmail, placeHolderText: "Email")
@@ -101,14 +90,13 @@ struct LoginPageView: View {
         }
     }
     
-    // Forgot Password Button View
+    // MARK: -  Forgot Password Button
     private var forgotPasswordButton: some View {
         HStack {
             Spacer()
-            // Forget Password Button
-            
+            // forget password button
             Button {
-                // Destination
+                // destination
                 showForgotPasswordPageScreen.toggle()
             } label: {
                 Text(Constants.forgotPasswordText)
@@ -119,11 +107,10 @@ struct LoginPageView: View {
         }
     }
     
-    // Login Button
-
+    // MARK: -  Login Button
     private var loginButton: some View {
         Button {
-            // Actions
+            // action
             authViewModel.loginUser(withEmail: userLoginViewModel.userEmail, withPassword: userLoginViewModel.password) { result in
                 if let err = result {
                     self.error = err
@@ -131,6 +118,7 @@ struct LoginPageView: View {
                 }
             }
         } label: {
+            
             Text(Constants.loginText)
                 .foregroundColor(.init(uiColor: .systemBackground))
                 .fontWeight(.semibold)
@@ -138,7 +126,7 @@ struct LoginPageView: View {
             
         }
         .padding()
-        // Dim the color of button until user has entered all fields
+        // reduce button color opacity until user has entered all fields
         .background(userLoginViewModel.validEntries ? Color.mainColor : Color.mainColor.opacity(0.4))
         .cornerRadius(10)
         .padding(.top)
@@ -146,14 +134,14 @@ struct LoginPageView: View {
             !userLoginViewModel.validEntries
         )
     }
-    
+    // MARK: -  Register Option Button
     private var registerOptionButton: some View {
         HStack {
             Text(Constants.noAccountText)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            Button {
-                showSignUpScreen.toggle()
+            NavigationLink {
+                SignUpPageView()
             } label: {
                 Text("Register")
                     .foregroundColor(.mainColor)
@@ -170,5 +158,4 @@ struct LoginPageView_Previews: PreviewProvider {
         LoginPageView()
     }
 }
-
 
