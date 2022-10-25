@@ -18,19 +18,31 @@ enum ProfileTabMenuItems: String, CaseIterable {
         return self.rawValue.capitalized
     }
 }
-                                
-                                
+
+
 struct ProfileTabView: View {
     
     // MARK: - Properties
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-
+    
     private let profileLinkNames = ProfileTabMenuItems.allCases
     
     // MARK: - Body
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
+        VStack {
+            VStack(spacing: 20) {
+                VStack {
+                    Image("painter")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                    .clipShape(Circle())
+                    
+                    Text("Daniel Akinniranye")
+                        .font(.system(size: 20, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.mainColor)
+                } // Clip the image to a circle
+                
                 List(profileLinkNames, id: \.self) { item in
                     if item == .logout {
                         Button {
@@ -52,17 +64,7 @@ struct ProfileTabView: View {
                 }
                 .listStyle(.inset)
             }
-            
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarTrailing, content: {
-                    Image("painter")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle()) // Clip the image to a circle
-                })
-            })
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
+            .padding(.top, 40)
         }
     }
 }
