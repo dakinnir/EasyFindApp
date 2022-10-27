@@ -15,7 +15,7 @@
 
 ### Features: 
 
-- [ ] Registration 
+- [x] Registration 
 - [ ] Profile
 - [ ] Homepage
 - [ ] Explore 
